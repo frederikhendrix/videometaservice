@@ -19,5 +19,6 @@ namespace VideoMetaService.Models
         public DateTime ReleaseDate { get; set; }
         public string Director { get; set; }
         public int ViewCount { get; set; }
+        public string BlobStorageUri { get; set; }
     }
 }
