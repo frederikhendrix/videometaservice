@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using VideoMetaService.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,8 +1,6 @@
 services:
   videometaservice:
     image: ${DOCKER_REGISTRY-}videometaservice
-    env_file:
-      - .env
     build:
       context: .
       dockerfile: VideoMetaService/Dockerfile
@@ -13,7 +11,7 @@ services:
     container_name: mongodb-videometadata-container
     command: mongod --auth --bind_ip_all
     ports:
-      - "27018:27018"
+      - "27018:27017"
     volumes:
       - mongodb-data:/data/db
       - ./init-mongo.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
