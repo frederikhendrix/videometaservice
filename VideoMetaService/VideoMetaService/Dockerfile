@@ -12,10 +12,10 @@ WORKDIR /src
 COPY ["VideoMetaService/VideoMetaService.csproj", "./"]
 RUN dotnet restore "./VideoMetaService.csproj"
 COPY . .
-RUN dotnet build "VideoMetaService.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "VideoMetaService/VideoMetaService.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "VideoMetaService.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "VideoMetaService/VideoMetaService.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
