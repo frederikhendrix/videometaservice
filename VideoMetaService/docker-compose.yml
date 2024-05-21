@@ -4,6 +4,14 @@ services:
     build:
       context: .
       dockerfile: VideoMetaService/Dockerfile
+    env_file:
+      - .env
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - MONGODB_CONNECTION_STRING=mongodb://admin:Test123!@mongo:27017
+      - MONGODB_DATABASE_NAME=VideoMetaDB
+      - SERVICEBUS_CONNECTION_STRING=${SERVICEBUS_CONNECTION_STRING}
+      - SERVICEBUS_TOPIC_NAME=interactiveflix-topic
     ports:
       - 5175:5175
   mongo:
