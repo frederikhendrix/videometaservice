@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: videometaservice-backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: videometaservice-backend
+  template:
+    metadata:
+      labels:
+        app: videometaservice-backend
+    spec:
+      containers:
+        - name: videometaservice-backend
+          image: rikhendrix/videometaservice-backend:latest
+          ports:
+            - containerPort: 80
