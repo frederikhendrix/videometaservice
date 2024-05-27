@@ -17,3 +17,20 @@ spec:
           image: rikhendrix/videometaservice-backend:latest
           ports:
             - containerPort: 80
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: "Development"
+            - name: MONGODB_CONNECTION_STRING
+              valueFrom:
+                secretKeyRef:
+                  name: videometaservice-secrets
+                  key: mongodb-connection-string
+            - name: MONGODB_DATABASE_NAME
+              value: "VideoMetaDB"
+            - name: SERVICEBUS_CONNECTION_STRING
+              valueFrom:
+                secretKeyRef:
+                  name: videometaservice-secrets
+                  key: servicebus-connection-string
+            - name: SERVICEBUS_TOPIC_NAME
+              value: "interactiveflix-topic"
