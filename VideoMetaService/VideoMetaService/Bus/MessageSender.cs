@@ -11,7 +11,7 @@ namespace ReviewService.Bus
         public MessageSender(string serviceBusConnectionString, string topicName)
         {
             _client = new ServiceBusClient(serviceBusConnectionString);
-            _sender = _client.CreateSender(topicName);
+            _sender = _client.CreateSender(topicName); 
         }
 
         public async Task SendMessageAsync(string messageBody)
