@@ -17,6 +17,13 @@ spec:
           image: rikhendrix/videometaservice-backend:latest
           ports:
             - containerPort: 5175
+          resources:
+            requests:
+              cpu: "10m"
+              memory: "64Mi"
+            limits:
+              cpu: "50m"
+              memory: "128Mi"
           env:
             - name: ASPNETCORE_ENVIRONMENT
               value: "Development"
