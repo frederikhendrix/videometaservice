@@ -16,7 +16,7 @@ spec:
         - name: videometaservice-backend
           image: rikhendrix/videometaservice-backend:latest
           ports:
-            - containerPort: 80
+            - containerPort: 5175
           env:
             - name: ASPNETCORE_ENVIRONMENT
               value: "Development"
