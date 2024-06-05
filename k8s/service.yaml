@@ -7,6 +7,6 @@ spec:
     app: videometaservice-backend
   ports:
     - protocol: TCP
-      port: 5175
+      port: 80
       targetPort: 5175
   type: ClusterIP
