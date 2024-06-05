@@ -13,7 +13,7 @@ namespace ReviewService.Bus
             _client = new ServiceBusClient(serviceBusConnectionString);
             _processor = _client.CreateProcessor(topicName, subscriptionName, new ServiceBusProcessorOptions());
         }
-
+         
         public async Task RegisterOnMessageHandlerAndReceiveMessagesAsync()
         {
             _processor.ProcessMessageAsync += ProcessMessagesAsync;
