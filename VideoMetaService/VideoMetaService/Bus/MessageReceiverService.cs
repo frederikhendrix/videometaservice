@@ -16,7 +16,7 @@
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
-            return Task.CompletedTask;//just in case
+            return Task.CompletedTask;
         }
     }
 }
