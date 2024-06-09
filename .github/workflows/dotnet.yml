@@ -94,6 +94,16 @@ jobs:
       - name: Set AKS context
         run: az aks get-credentials --resource-group ${{ secrets.AKS_RESOURCE_GROUP }} --name ${{ secrets.AKS_CLUSTER_NAME }}
 
+        # New step to create the Kubernetes secret
+      - name: Create Kubernetes Secret
+        env:
+          MONGODB_CONNECTION_STRING: ${{ secrets.MONGODB_CONNECTION_STRING }}
+          SERVICEBUS_CONNECTION_STRING: ${{ secrets.SERVICEBUS_CONNECTION_STRING }}
+        run: |
+          kubectl create secret generic videometaservice-secrets \
+            --from-literal=mongodb-connection-string=$MONGODB_CONNECTION_STRING \
+            --from-literal=servicebus-connection-string=$SERVICEBUS_CONNECTION_STRING
+
       - name: Deploy to AKS
         run: |
           kubectl apply -f ./k8s/deployment.yaml
