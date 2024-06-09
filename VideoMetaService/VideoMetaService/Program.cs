@@ -15,7 +15,7 @@ var serviceBusTopicName = Environment.GetEnvironmentVariable("SERVICEBUS_TOPIC_N
 var serviceBusSubscriptionName = "VideoMetaServiceSubscription";
 
 
-// Replace placeholders in the configuration.
+// Replace placeholders in the configuration
 builder.Configuration["ConnectionStrings:MongoDb"] = mongoDbConnectionString;
 builder.Configuration["DatabaseName"] = mongoDbDatabaseName;
 builder.Configuration["ServiceBus:ConnectionString"] = serviceBusConnectionString;
